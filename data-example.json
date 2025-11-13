@@ -1,0 +1,542 @@
+[
+  {
+    "id": "19055046-7bbe-4018-95ef-0a3418195c4e",
+    "type": "sell",
+    "user_id": "2c634d3d-da76-419b-8bee-61e5dcaa6d40",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:04:46.130489+00:00",
+    "updated_at": "2025-11-13T06:04:46.130489+00:00",
+    "selling": {
+      "id": "buried-city-town-hall-key",
+      "amount": 1,
+      "name": "Buried City Town Hall Key",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/buried-city-town-hall-key.webp"
+    },
+    "buying": {
+      "id": "blaze-grenade-blueprint",
+      "amount": 1,
+      "name": "Blaze Grenade Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "DobbyLongNose",
+      "username": "DobbyLongNose#7660",
+      "avatar_url": null,
+      "embark_id": "DobbyLongNose#1907"
+    }
+  },
+  {
+    "id": "6a11b97d-4aca-431a-892f-198a8537cffa",
+    "type": "buy",
+    "user_id": "234d828d-6a4c-4f47-88aa-279bfce47c95",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:04:45.467249+00:00",
+    "updated_at": "2025-11-13T06:04:45.467249+00:00",
+    "buying": {
+      "id": "silencer-ii-recipe",
+      "amount": 1,
+      "name": "Silencer II Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/silencer-ii-recipe.webp"
+    },
+    "selling": {
+      "id": "anvil-recipe",
+      "amount": 1,
+      "name": "Anvil Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/anvil-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "davijesus7601",
+      "username": "davijesus7601#4457",
+      "avatar_url": "https://cdn.discordapp.com/avatars/517436682442768387/83dc9a069f18c8ab7819099ae83b3277.png",
+      "embark_id": "batu#6254"
+    }
+  },
+  {
+    "id": "b5a0b6c4-b560-47d7-8956-13ff67267d75",
+    "type": "sell",
+    "user_id": "b61728fb-4eb0-46f5-bd42-530e22af8dca",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:04:18.786559+00:00",
+    "updated_at": "2025-11-13T06:04:18.786559+00:00",
+    "selling": {
+      "id": "buried-city-town-hall-key",
+      "amount": 1,
+      "name": "Buried City Town Hall Key",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/buried-city-town-hall-key.webp"
+    },
+    "buying": {
+      "id": "assorted-seeds",
+      "amount": 100,
+      "name": "Assorted Seeds",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/assorted-seeds.webp"
+    },
+    "user_profile": {
+      "full_name": "kickerr",
+      "username": "kickerr#4648",
+      "avatar_url": null,
+      "embark_id": "kicker#2505"
+    }
+  },
+  {
+    "id": "1ad2d621-3e38-443a-b9f4-08dd50e5f399",
+    "type": "buy",
+    "user_id": "295cd6ae-cfb3-4bb1-922d-0ab893914683",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:04:07.572933+00:00",
+    "updated_at": "2025-11-13T06:04:07.572933+00:00",
+    "buying": {
+      "id": "bombardier-cell",
+      "amount": 1,
+      "name": "Bombardier Cell",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/bombardier-cell.webp"
+    },
+    "selling": {
+      "id": "heavy-gun-parts-recipe",
+      "amount": 1,
+      "name": "Heavy Gun Parts Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/heavy-gun-parts-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "davidwj",
+      "username": "davidwj#9202",
+      "avatar_url": null,
+      "embark_id": "ResidualDavid#0089"
+    }
+  },
+  {
+    "id": "0969210f-1dc2-42e5-b623-37fb85fecb56",
+    "type": "sell",
+    "user_id": "e18f13d2-b81f-4206-9fd1-a2cdaa00bef0",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:50.451477+00:00",
+    "updated_at": "2025-11-13T06:03:50.451477+00:00",
+    "selling": {
+      "id": "padded-stock-recipe",
+      "amount": 1,
+      "name": "Padded Stock Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/padded-stock-recipe.webp"
+    },
+    "buying": {
+      "id": "looting-mk-3-survivor-blueprint",
+      "amount": 1,
+      "name": "Looting MK. 3 (Survivor) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/looting-mk-3-survivor-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "killer7184",
+      "username": "killer7184#9987",
+      "avatar_url": "https://cdn.discordapp.com/avatars/136310830441562112/01d3bae3b8dd288f01b414f6b16f0523.png",
+      "embark_id": "PewisPamilton#9021"
+    }
+  },
+  {
+    "id": "0f48ba45-fe33-4867-a408-23d62dad3893",
+    "type": "sell",
+    "user_id": "cbf29d61-8c2c-4087-90db-dafe1b3c457d",
+    "status": "active",
+    "description": "trying to finish expo",
+    "created_at": "2025-11-13T06:03:36.981826+00:00",
+    "updated_at": "2025-11-13T06:03:36.981826+00:00",
+    "selling": {
+      "id": "rocketeer-part",
+      "amount": 3,
+      "name": "Rocketeer Driver",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/rocketeer-part.webp"
+    },
+    "buying": {
+      "id": "laboratory-reagents",
+      "amount": 3,
+      "name": "Laboratory Reagents",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/laboratory-reagents.webp"
+    },
+    "user_profile": {
+      "full_name": "Sham123",
+      "username": "Sham123#3328",
+      "avatar_url": null,
+      "embark_id": "sham#7203"
+    }
+  },
+  {
+    "id": "024e2055-6e7e-46aa-bf76-f515e3c44005",
+    "type": "sell",
+    "user_id": "7475d359-666a-46db-acf3-404546c9a6e1",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:30.253203+00:00",
+    "updated_at": "2025-11-13T06:03:30.253203+00:00",
+    "selling": {
+      "id": "padded-stock-recipe",
+      "amount": 1,
+      "name": "Padded Stock Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/padded-stock-recipe.webp"
+    },
+    "buying": {
+      "id": "looting-mk-3-survivor-blueprint",
+      "amount": 1,
+      "name": "Looting MK. 3 (Survivor) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/looting-mk-3-survivor-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "jyh4130",
+      "username": "jyh4130#8429",
+      "avatar_url": "https://static-cdn.jtvnw.net/user-default-pictures-uv/294c98b5-e34d-42cd-a8f0-140b72fba9b0-profile_image-300x300.png",
+      "embark_id": "PlayfulFace#6838"
+    }
+  },
+  {
+    "id": "83e8bfc4-7e5f-47c7-aafb-869939d3a74e",
+    "type": "buy",
+    "user_id": "e0726b76-bdb8-4475-a5e5-056def023fa7",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:27.737939+00:00",
+    "updated_at": "2025-11-13T06:03:27.737939+00:00",
+    "buying": {
+      "id": "tempest-i-recipe",
+      "amount": 1,
+      "name": "Tempest I Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/tempest-i-recipe.webp"
+    },
+    "selling": {
+      "id": "queen-reactor",
+      "amount": 1,
+      "name": "Queen Reactor",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/queen-reactor.webp"
+    },
+    "user_profile": {
+      "full_name": "dante",
+      "username": "dante#2511",
+      "avatar_url": null,
+      "embark_id": "DANTE#1828"
+    }
+  },
+  {
+    "id": "e68b2f7e-bf3e-4529-a0be-78563768239e",
+    "type": "sell",
+    "user_id": "d69fe463-30a3-442b-9857-8f89caf4382f",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:14.123911+00:00",
+    "updated_at": "2025-11-13T06:03:14.123911+00:00",
+    "selling": {
+      "id": "blaze-grenade-blueprint",
+      "amount": 1,
+      "name": "Blaze Grenade Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade-blueprint.webp"
+    },
+    "buying": {
+      "id": "looting-mk-3-survivor-blueprint",
+      "amount": 1,
+      "name": "Looting MK. 3 (Survivor) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/looting-mk-3-survivor-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "birs0134",
+      "username": "birs0134#0556",
+      "avatar_url": "https://cdn.discordapp.com/avatars/448102482187517962/42841d71bc74db1b4d7ca82d589e7ecb.png",
+      "embark_id": "KoreanZombie#9924"
+    }
+  },
+  {
+    "id": "0a131bf5-9ad5-4dd1-9aef-cdc7a2d8ae49",
+    "type": "sell",
+    "user_id": "e0726b76-bdb8-4475-a5e5-056def023fa7",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:12.453361+00:00",
+    "updated_at": "2025-11-13T06:03:12.453361+00:00",
+    "selling": {
+      "id": "queen-reactor",
+      "amount": 1,
+      "name": "Queen Reactor",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/queen-reactor.webp"
+    },
+    "buying": {
+      "id": "tempest-i-recipe",
+      "amount": 1,
+      "name": "Tempest I Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/tempest-i-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "dante",
+      "username": "dante#2511",
+      "avatar_url": null,
+      "embark_id": "DANTE#1828"
+    }
+  },
+  {
+    "id": "c8d29519-3c36-46bc-8ff9-9cd895841f84",
+    "type": "sell",
+    "user_id": "19f35a33-0d75-4669-ae61-b0e8358d8e00",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:03:05.240703+00:00",
+    "updated_at": "2025-11-13T06:03:05.240703+00:00",
+    "selling": {
+      "id": "rusted-gear",
+      "amount": 2,
+      "name": "Rusted Gear",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/rusted-gear.webp"
+    },
+    "buying": {
+      "id": "bombardier-cell",
+      "amount": 3,
+      "name": "Bombardier Cell",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/bombardier-cell.webp"
+    },
+    "user_profile": {
+      "full_name": "Cronnie",
+      "username": "Cronnie#6883",
+      "avatar_url": null,
+      "embark_id": "Cronnie#0793"
+    }
+  },
+  {
+    "id": "214d4ef3-553b-45e6-9fbe-65dd75f063c3",
+    "type": "buy",
+    "user_id": "85f6e8ce-eb47-4250-8085-231b42fbdc90",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:02:56.218212+00:00",
+    "updated_at": "2025-11-13T06:02:56.218212+00:00",
+    "buying": {
+      "id": "wolfpack-recipe",
+      "amount": 1,
+      "name": "Wolfpack Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/wolfpack-recipe.webp"
+    },
+    "selling": {
+      "id": "snap-hook",
+      "amount": 1,
+      "name": "Snap Hook",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/snap-hook.webp"
+    },
+    "user_profile": {
+      "full_name": "Mavos7060",
+      "username": "Mavos7060#1717",
+      "avatar_url": null,
+      "embark_id": "mavos#7060"
+    }
+  },
+  {
+    "id": "5a82e5b7-3865-4937-aa41-4b81c3481d6d",
+    "type": "sell",
+    "user_id": "2c634d3d-da76-419b-8bee-61e5dcaa6d40",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:02:53.015791+00:00",
+    "updated_at": "2025-11-13T06:02:53.015791+00:00",
+    "selling": {
+      "id": "kinetic-converter",
+      "amount": 1,
+      "name": "Kinetic Converter",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/kinetic-converter.webp"
+    },
+    "buying": {
+      "id": "assorted-seeds",
+      "amount": 100,
+      "name": "Assorted Seeds",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/assorted-seeds.webp"
+    },
+    "user_profile": {
+      "full_name": "DobbyLongNose",
+      "username": "DobbyLongNose#7660",
+      "avatar_url": null,
+      "embark_id": "DobbyLongNose#1907"
+    }
+  },
+  {
+    "id": "a327bf47-e005-46fd-8791-d9eed8ac812a",
+    "type": "buy",
+    "user_id": "8a7240f7-170d-43f6-9956-8f33a031627f",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:02:31.782145+00:00",
+    "updated_at": "2025-11-13T06:02:31.782145+00:00",
+    "buying": {
+      "id": "looting-mk-3-survivor-blueprint",
+      "amount": 1,
+      "name": "Looting MK. 3 (Survivor) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/looting-mk-3-survivor-blueprint.webp"
+    },
+    "selling": {
+      "id": "snap-hook-recipe",
+      "amount": 1,
+      "name": "Snap Hook Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/snap-hook-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "torpedo",
+      "username": "torpedo#7220",
+      "avatar_url": null,
+      "embark_id": "lGDl#3610"
+    }
+  },
+  {
+    "id": "8c8a9370-3f5d-4061-b8af-89ed1a0b4fc8",
+    "type": "sell",
+    "user_id": "8a7240f7-170d-43f6-9956-8f33a031627f",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:02:22.688855+00:00",
+    "updated_at": "2025-11-13T06:02:22.688855+00:00",
+    "selling": {
+      "id": "snap-hook-recipe",
+      "amount": 1,
+      "name": "Snap Hook Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/snap-hook-recipe.webp"
+    },
+    "buying": {
+      "id": "looting-mk-3-survivor-blueprint",
+      "amount": 1,
+      "name": "Looting MK. 3 (Survivor) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/looting-mk-3-survivor-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "torpedo",
+      "username": "torpedo#7220",
+      "avatar_url": null,
+      "embark_id": "lGDl#3610"
+    }
+  },
+  {
+    "id": "9444a1be-ebb3-4d1b-b721-fb1d34491177",
+    "type": "buy",
+    "user_id": "8a7240f7-170d-43f6-9956-8f33a031627f",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:01:39.591064+00:00",
+    "updated_at": "2025-11-13T06:01:39.591064+00:00",
+    "buying": {
+      "id": "blaze-grenade-blueprint",
+      "amount": 1,
+      "name": "Blaze Grenade Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/blaze-grenade-blueprint.webp"
+    },
+    "selling": {
+      "id": "snap-hook-recipe",
+      "amount": 1,
+      "name": "Snap Hook Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/snap-hook-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "torpedo",
+      "username": "torpedo#7220",
+      "avatar_url": null,
+      "embark_id": "lGDl#3610"
+    }
+  },
+  {
+    "id": "4cff1321-4f8a-43f0-bdf3-e1507f7304cd",
+    "type": "buy",
+    "user_id": "e957662f-e81a-48d3-83a9-468c43671be3",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:01:34.511427+00:00",
+    "updated_at": "2025-11-13T06:01:34.511427+00:00",
+    "buying": {
+      "id": "wolfpack-recipe",
+      "amount": 1,
+      "name": "Wolfpack Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/wolfpack-recipe.webp"
+    },
+    "selling": {
+      "id": "assorted-seeds",
+      "amount": 1200,
+      "name": "Assorted Seeds",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/assorted-seeds.webp"
+    },
+    "user_profile": {
+      "full_name": "eman0061",
+      "username": "eman0061#7367",
+      "avatar_url": "https://cdn.discordapp.com/avatars/380917039205842944/b175a824623e294b0af0246ef3c1ef6d.png",
+      "embark_id": "Eman#0207"
+    }
+  },
+  {
+    "id": "0bb8035c-15c6-4c61-9972-b2f75bb21da7",
+    "type": "buy",
+    "user_id": "74b41b6b-2190-4f30-9115-e9e93c571431",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T06:00:30.034305+00:00",
+    "updated_at": "2025-11-13T06:00:30.034305+00:00",
+    "buying": {
+      "id": "leaper-pulse-unit",
+      "amount": 3,
+      "name": "Leaper Pulse Unit",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/leaper-pulse-unit.webp"
+    },
+    "selling": {
+      "id": "assorted-seeds",
+      "amount": 100,
+      "name": "Assorted Seeds",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/assorted-seeds.webp"
+    },
+    "user_profile": {
+      "full_name": "atreyu1",
+      "username": "atreyu1#0314",
+      "avatar_url": "https://cdn.discordapp.com/avatars/178132935398916096/851a44f7d25c1affdc48d2830c04e556.png",
+      "embark_id": "Atreyu#5196"
+    }
+  },
+  {
+    "id": "dc42d25a-b6a8-4093-8f71-6ab76921e332",
+    "type": "buy",
+    "user_id": "b1f52a36-3757-48e4-b566-83341cdba756",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T05:59:32.705358+00:00",
+    "updated_at": "2025-11-13T05:59:32.705358+00:00",
+    "buying": {
+      "id": "snap-hook-recipe",
+      "amount": 1,
+      "name": "Snap Hook Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/snap-hook-recipe.webp"
+    },
+    "selling": {
+      "id": "tactical-mk3-defensive-blueprint",
+      "amount": 1,
+      "name": "Tactical MK.3 (Defensive) Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/tactical-mk3-defensive-blueprint.webp"
+    },
+    "user_profile": {
+      "full_name": "damir200333",
+      "username": "damir200333#9079",
+      "avatar_url": "https://static-cdn.jtvnw.net/user-default-pictures-uv/75305d54-c7cc-40d1-bb9c-91fbe85943c7-profile_image-300x300.png",
+      "embark_id": "MIA#0113"
+    }
+  },
+  {
+    "id": "f1a1b0df-a647-4afd-b628-5e8839e27586",
+    "type": "buy",
+    "user_id": "ca6b2144-0359-4a71-8d39-ceda9d5cb5a9",
+    "status": "active",
+    "description": null,
+    "created_at": "2025-11-13T05:58:48.811846+00:00",
+    "updated_at": "2025-11-13T05:58:48.811846+00:00",
+    "buying": {
+      "id": "cooling-fan",
+      "amount": 4,
+      "name": "Cooling Fan",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/cooling-fan.webp"
+    },
+    "selling": {
+      "id": "anvil-recipe",
+      "amount": 1,
+      "name": "Anvil Blueprint",
+      "icon": "https://cdn.metaforge.app/arc-raiders/icons/anvil-recipe.webp"
+    },
+    "user_profile": {
+      "full_name": "behindyou247",
+      "username": "behindyou247#3886",
+      "avatar_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+      "embark_id": "Solitude#2681"
+    }
+  }
+]

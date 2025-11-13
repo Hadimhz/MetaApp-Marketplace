@@ -1,0 +1,54 @@
+# Environment variables (contains sensitive data like Discord token)
+.env
+
+# TypeScript build output
+dist/
+*.js
+*.js.map
+
+# Exclude source JavaScript files but keep existing index.js
+!src/index.js
+
+# Database files
+data/
+*.db
+*.db-journal
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+*.test.ts
+*.test.js
+test/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+.claude/
+CLAUDE.md
+
+# Lock files (optional - some prefer to commit these)
+# package-lock.json
+# yarn.lock
