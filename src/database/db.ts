@@ -12,8 +12,8 @@
  */
 
 import Database from 'better-sqlite3';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync, mkdirSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
 import { logger } from '../utils/logger';
 import { LogCategory, Listing, DbListing, DbTrackedItem, DbAutoPurchaseRule, DbPostedListing } from '../types';
 import { config } from '../utils/config';
@@ -33,6 +33,13 @@ export function initializeDatabase(): Database.Database {
   logger.info(LogCategory.DATABASE, `Initializing database at: ${config.database.path}`);
 
   try {
+    // Create data directory if it doesn't exist
+    const dbDir = dirname(config.database.path);
+    if (!existsSync(dbDir)) {
+      logger.info(LogCategory.DATABASE, `Creating database directory: ${dbDir}`);
+      mkdirSync(dbDir, { recursive: true });
+    }
+
     // Create database connection
     db = new Database(config.database.path);
 
