@@ -338,6 +338,78 @@ export function markListingsAsPosted(listingIds: string[]): void {
   logger.info(LogCategory.DATABASE, `Marked ${result.changes} listings as posted`);
 }
 
+/**
+ * Update listing status and updated_at timestamp
+ * @param listingId - Listing ID to update
+ * @param status - New status
+ * @param updatedAt - New updated_at timestamp
+ * @returns True if updated, false if not found
+ */
+export function updateListingStatus(listingId: string, status: string, updatedAt: string): boolean {
+  const database = getDatabase();
+
+  const stmt = database.prepare(`
+    UPDATE listings
+    SET status = ?, updated_at = ?
+    WHERE id = ?
+  `);
+  const result = stmt.run(status, updatedAt, listingId);
+
+  if (result.changes > 0) {
+    logger.info(LogCategory.DATABASE, `Updated listing ${listingId} status to: ${status}`);
+    return true;
+  } else {
+    logger.warn(LogCategory.DATABASE, `Failed to update listing status (not found): ${listingId}`);
+    return false;
+  }
+}
+
+/**
+ * Get posted listing info by listing ID
+ * @param listingId - Listing ID
+ * @returns Posted listing info or null if not found
+ */
+export function getPostedListingInfo(listingId: string): DbPostedListing | null {
+  const database = getDatabase();
+
+  const row = database.prepare('SELECT * FROM posted_listings WHERE listing_id = ?').get(listingId) as DbPostedListing | undefined;
+
+  if (!row) {
+    return null;
+  }
+
+  return row;
+}
+
+/**
+ * Get all posted listings with their message info
+ * @returns Array of listings that have been posted to Discord
+ */
+export function getPostedListings(): Array<{ listing: Listing; postedInfo: DbPostedListing }> {
+  const database = getDatabase();
+
+  const query = `
+    SELECT l.*, pl.*
+    FROM listings l
+    INNER JOIN posted_listings pl ON l.id = pl.listing_id
+    ORDER BY l.created_at DESC
+  `;
+
+  const rows = database.prepare(query).all() as Array<DbListing & DbPostedListing>;
+
+  return rows.map(row => ({
+    listing: dbListingToListing(row),
+    postedInfo: {
+      listing_id: row.listing_id,
+      message_id: row.message_id,
+      channel_id: row.channel_id,
+      batch_number: row.batch_number,
+      batch_position: row.batch_position,
+      posted_at: row.posted_at
+    }
+  }));
+}
+
 // ============================================================================
 // Posted Listings Operations
 // ============================================================================

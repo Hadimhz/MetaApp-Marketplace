@@ -35,6 +35,16 @@ const LISTING_TYPE_EMOJI = {
 const NUMBER_EMOJIS = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'];
 
 /**
+ * Status badge emojis and formatting
+ */
+const STATUS_BADGES = {
+  active: '🟢 **ACTIVE**',
+  'in-progress': '🟡 **IN PROGRESS**',
+  completed: '✅ **COMPLETED**',
+  cancelled: '❌ **CANCELLED**'
+};
+
+/**
  * Create batches of listings for Discord posting
  * Groups listings into arrays of up to 5 items each
  *
@@ -95,8 +105,11 @@ function formatListingEntry(listing: Listing, position: number): string {
   // Determine if this is a seed trade
   const isSeedTrade = listing.buying.id === 'assorted-seeds' || listing.selling.id === 'assorted-seeds';
 
+  // Get status badge
+  const statusBadge = STATUS_BADGES[listing.status as keyof typeof STATUS_BADGES] || `**${listing.status.toUpperCase()}**`;
+
   // Build the listing display
-  let result = `${emoji} **${typeEmoji} ${listing.type.toUpperCase()}**\n`;
+  let result = `${emoji} **${typeEmoji} ${listing.type.toUpperCase()}** • ${statusBadge}\n`;
   result += `┣ **Offering:** ${listing.selling.name} ×${listing.selling.amount}\n`;
   result += `┣ **Wanting:** ${listing.buying.name} ×${listing.buying.amount}`;
 
@@ -225,4 +238,33 @@ export function createPurchaseConfirmationMessage(/*listing: Listing, username: 
  */
 export function createErrorMessage(error: string): string {
   return `❌ **Error**\n\n${error}`;
+}
+
+/**
+ * Recreate a batch embed with updated listing data
+ * Used when editing messages to show status updates
+ *
+ * @param listings - Array of listings (updated data)
+ * @param batchNumber - Original batch number
+ * @returns Discord EmbedBuilder
+ */
+export function recreateBatchEmbed(listings: Listing[], batchNumber: number): EmbedBuilder {
+  logger.debug(LogCategory.DISCORD, `Recreating embed for batch #${batchNumber} with updated data`);
+
+  // Build the description with all listings
+  const description = listings
+    .map((listing, index) => formatListingEntry(listing, index + 1))
+    .join('\n\n');
+
+  // Create embed with blue color
+  const embed = new EmbedBuilder()
+    .setColor(0x5865F2) // Discord Blurple color
+    .setTitle(`📋 New Listings (Batch #${batchNumber})`)
+    .setDescription(description)
+    .setTimestamp(new Date())
+    .setFooter({
+      text: `${listings.length} listing${listings.length !== 1 ? 's' : ''} • Status updates shown in real-time`
+    });
+
+  return embed;
 }

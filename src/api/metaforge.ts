@@ -24,7 +24,7 @@ const METAFORGE_API_BASE = 'https://metaforge.app/api/arc-raiders/trade';
  */
 const DEFAULT_PARAMS = {
   page: 1,
-  limit: 30, // Fetch 30 listings per request (adjustable)
+  limit: 60, // Fetch 30 listings per request (adjustable)
   sortBy: 'created_at',
   sortOrder: 'desc' as const
 };

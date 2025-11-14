@@ -17,8 +17,8 @@ import * as cron from 'node-cron';
 import { logger } from './utils/logger';
 import { LogCategory } from './types';
 import { config } from './utils/config';
-import { initializeDatabase, closeDatabase, insertListings, listingExists } from './database/db';
-import { initializeDiscordBot, disconnectDiscordBot, postListingsToDiscord } from './bot/discord';
+import { initializeDatabase, closeDatabase, insertListings, listingExists, getPostedListings, updateListingStatus } from './database/db';
+import { initializeDiscordBot, disconnectDiscordBot, postListingsToDiscord, updateMessageWithStatus } from './bot/discord';
 import { getAllListings, getNewListings } from './api/metaforge';
 import { botEvents } from './utils/events';
 import { initializeCustomPurchaseLogic } from './custom-purchase-logic';
@@ -45,6 +45,91 @@ const stats = {
 };
 
 /**
+ * Check for status changes in posted listings and update Discord messages
+ * @param fetchedListings - Latest listings from API
+ */
+async function checkStatusChanges(fetchedListings: Map<string, any>): Promise<void> {
+  try {
+    logger.debug(LogCategory.SYSTEM, 'Checking for status changes in posted listings...');
+
+    // Get all posted listings from database
+    const postedListings = getPostedListings();
+
+    if (postedListings.length === 0) {
+      logger.debug(LogCategory.SYSTEM, 'No posted listings to check for status changes');
+      return;
+    }
+
+    // Group by message ID to batch updates
+    const messageGroups = new Map<string, {
+      channelId: string;
+      batchNumber: number;
+      listings: Array<{ id: string; position: number }>
+    }>();
+
+    let statusChangedCount = 0;
+
+    // Check each posted listing for status changes
+    for (const { listing, postedInfo } of postedListings) {
+      const apiListing = fetchedListings.get(listing.id);
+
+      if (apiListing && apiListing.status !== listing.status) {
+        logger.info(
+          LogCategory.SYSTEM,
+          `Status change detected for listing ${listing.id}: ${listing.status} → ${apiListing.status}`
+        );
+
+        // Update database with new status
+        updateListingStatus(listing.id, apiListing.status, apiListing.updated_at);
+        statusChangedCount++;
+
+        // Group by message for batch update
+        if (!messageGroups.has(postedInfo.message_id)) {
+          messageGroups.set(postedInfo.message_id, {
+            channelId: postedInfo.channel_id,
+            batchNumber: postedInfo.batch_number,
+            listings: []
+          });
+        }
+
+        messageGroups.get(postedInfo.message_id)!.listings.push({
+          id: listing.id,
+          position: postedInfo.batch_position
+        });
+      }
+    }
+
+    if (statusChangedCount === 0) {
+      logger.debug(LogCategory.SYSTEM, 'No status changes detected');
+      return;
+    }
+
+    logger.info(LogCategory.SYSTEM, `🔄 Detected ${statusChangedCount} status changes across ${messageGroups.size} messages`);
+
+    // Update each affected message
+    for (const [messageId, groupData] of messageGroups) {
+      // Sort by position to maintain order
+      groupData.listings.sort((a, b) => a.position - b.position);
+      const listingIds = groupData.listings.map(l => l.id);
+
+      await updateMessageWithStatus(
+        messageId,
+        groupData.channelId,
+        listingIds,
+        groupData.batchNumber
+      );
+
+      // Small delay between message updates to avoid rate limits
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
+
+    logger.info(LogCategory.SYSTEM, `✅ Updated ${messageGroups.size} Discord messages with status changes`);
+  } catch (error) {
+    logger.error(LogCategory.SYSTEM, 'Error checking status changes:', error);
+  }
+}
+
+/**
  * Main polling function
  * Fetches listings, compares with database, posts new ones to Discord
  */
@@ -62,14 +147,21 @@ async function pollListings(): Promise<void> {
     logger.info(LogCategory.SYSTEM, '🔄 Starting polling cycle...');
 
     // Step 1: Fetch all listings from API
-    logger.info(LogCategory.API, 'Step 1/4: Fetching listings from MetaForge API...');
+    logger.info(LogCategory.API, 'Step 1/6: Fetching listings from MetaForge API...');
     const fetchedListings = await getAllListings();
     stats.totalListingsFetched += fetchedListings.length;
 
     logger.info(LogCategory.API, `Fetched ${fetchedListings.length} listings from API`);
 
-    // Step 2: Determine which listings are new
-    logger.info(LogCategory.DATABASE, 'Step 2/4: Checking for new listings...');
+    // Create a map for faster lookups
+    const fetchedListingsMap = new Map(fetchedListings.map(listing => [listing.id, listing]));
+
+    // Step 2: Check for status changes in existing posted listings
+    logger.info(LogCategory.SYSTEM, 'Step 2/6: Checking for status changes...');
+    await checkStatusChanges(fetchedListingsMap);
+
+    // Step 3: Determine which listings are new
+    logger.info(LogCategory.DATABASE, 'Step 3/6: Checking for new listings...');
 
     // Create a set of existing listing IDs for fast lookup
     const existingIds = new Set<string>();
@@ -92,12 +184,12 @@ async function pollListings(): Promise<void> {
     logger.info(LogCategory.SYSTEM, `🆕 Found ${newListings.length} new listings!`);
     stats.totalNewListingsDetected += newListings.length;
 
-    // Step 3: Save new listings to database
-    logger.info(LogCategory.DATABASE, 'Step 3/4: Saving new listings to database...');
+    // Step 4: Save new listings to database
+    logger.info(LogCategory.DATABASE, 'Step 4/6: Saving new listings to database...');
     insertListings(newListings);
 
-    // Step 4: Emit events for new listings (for custom purchase logic)
-    logger.info(LogCategory.SYSTEM, 'Step 4/5: Emitting events for custom purchase logic...');
+    // Step 5: Emit events for new listings (for custom purchase logic)
+    logger.info(LogCategory.SYSTEM, 'Step 5/6: Emitting events for custom purchase logic...');
 
     // Emit batch event
     botEvents.emitNewListingsBatch(newListings);
@@ -107,8 +199,8 @@ async function pollListings(): Promise<void> {
       botEvents.emitNewListing(listing);
     });
 
-    // Step 5: Post new listings to Discord
-    logger.info(LogCategory.DISCORD, 'Step 5/5: Posting new listings to Discord...');
+    // Step 6: Post new listings to Discord
+    logger.info(LogCategory.DISCORD, 'Step 6/6: Posting new listings to Discord...');
     const batchesPosted = await postListingsToDiscord(newListings);
     stats.totalBatchesPosted += batchesPosted;
 

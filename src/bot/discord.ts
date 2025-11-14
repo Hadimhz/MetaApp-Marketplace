@@ -24,13 +24,15 @@ import {
   createBatchButtons,
   parseButtonCustomId,
   createPurchaseConfirmationMessage,
-  createErrorMessage
+  createErrorMessage,
+  recreateBatchEmbed
 } from './formatters';
 import { botEvents } from '../utils/events';
 import {
   insertPostedListing,
   markListingsAsPosted,
-  getListingByMessageId
+  getListingByMessageId,
+  getListingById
 } from '../database/db';
 
 /**
@@ -339,6 +341,77 @@ export async function postListingsToDiscord(
   );
 
   return successCount;
+}
+
+/**
+ * Update a Discord message with updated listing statuses
+ * Used when listing statuses change (e.g., to "in-progress")
+ *
+ * @param messageId - Discord message ID to update
+ * @param channelId - Discord channel ID
+ * @param listingIds - Array of listing IDs in this message (in order)
+ * @param batchNumber - Original batch number
+ * @returns Promise that resolves to true if successful, false otherwise
+ */
+export async function updateMessageWithStatus(
+  messageId: string,
+  channelId: string,
+  listingIds: string[],
+  batchNumber: number
+): Promise<boolean> {
+  try {
+    const client = getDiscordClient();
+
+    logger.info(LogCategory.DISCORD, `Updating message ${messageId} with status changes`);
+
+    // Get the channel
+    const channel = await client.channels.fetch(channelId);
+
+    if (!channel || !channel.isTextBased()) {
+      logger.error(LogCategory.DISCORD, `Channel not found or not text-based: ${channelId}`);
+      return false;
+    }
+
+    // Get the message
+    const message = await (channel as TextChannel).messages.fetch(messageId);
+
+    if (!message) {
+      logger.error(LogCategory.DISCORD, `Message not found: ${messageId}`);
+      return false;
+    }
+
+    // Fetch updated listing data from database
+    const updatedListings: Listing[] = [];
+    for (const listingId of listingIds) {
+      const listing = getListingById(listingId);
+      if (listing) {
+        updatedListings.push(listing);
+      }
+    }
+
+    if (updatedListings.length === 0) {
+      logger.warn(LogCategory.DISCORD, `No listings found for message ${messageId}`);
+      return false;
+    }
+
+    // Recreate the embed with updated data
+    const updatedEmbed = recreateBatchEmbed(updatedListings, batchNumber);
+
+    // Keep the original buttons
+    const originalButtons = message.components;
+
+    // Edit the message
+    await message.edit({
+      embeds: [updatedEmbed],
+      components: originalButtons
+    });
+
+    logger.info(LogCategory.DISCORD, `Successfully updated message ${messageId} with new status`);
+    return true;
+  } catch (error) {
+    logger.error(LogCategory.DISCORD, `Error updating message ${messageId}:`, error);
+    return false;
+  }
 }
 
 /**
